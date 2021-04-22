@@ -1,26 +1,22 @@
 package com.yunitski.mycalc;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button ac, plus_minus, percent, divide, _7, _8, _9, multiply, _4, _5, _6, minus, _1, _2, _3, plus, _0, comma, eq;
     EditText result;
-    String input = "";
-    String operator;
-    double res = 0;
-    boolean isOperatorSelected = false;
-    double numberOnTheScreen;
-    private static int COMMA_COUNT = 0;
-    boolean isResulted = false;
+    TextView inputView;
+    String etRes;
+    float inputF, lastInputF;
+    static String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,263 +63,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result = findViewById(R.id.result);
         result.setInputType(InputType.TYPE_NULL);
         result.setText("0");
-
+        inputView = findViewById(R.id.inputView);
+        inputView.setText("0");
+        etRes = "";
+        inputF = 0;
+        lastInputF = 0;
+        status = "numIn";
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id._0:
-                input += 0;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(0);
                 break;
             case R.id._1:
-                input += 1;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(1);
                 break;
             case R.id._2:
-                input += 2;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(2);
                 break;
             case R.id._3:
-                input += 3;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(3);
                 break;
             case R.id._4:
-                input += 4;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(4);
                 break;
             case R.id._5:
-                input += 5;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(5);
                 break;
             case R.id._6:
-                input += 6;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(6);
                 break;
             case R.id._7:
-                input += 7;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(7);
                 break;
             case R.id._8:
-                input += 8;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
+                numInputMethod(8);
                 break;
             case R.id._9:
-                input += 9;
-                result.setText(""+input);
-                isOperatorSelected = false;
-                isResulted = false;
-                break;
-            case R.id._ac:
-                clear();
-                break;
-            case R.id._plus:
-                if (!isOperatorSelected) {
-                        if (res == 0) {
-                            numberOnTheScreen = Double.parseDouble(input);
-                        } else {
-                            numberOnTheScreen = Double.parseDouble(result.getText().toString());
-                        }
-                        operator = "+";
-                        input = "";
-                        isOperatorSelected = true;
-                        COMMA_COUNT = 0;
-                        isResulted = false;
-
-                }
-                break;
-            case R.id._minus:
-                if (!isOperatorSelected) {
-                        if (res == 0) {
-                            numberOnTheScreen = Double.parseDouble(input);
-                        } else {
-                            numberOnTheScreen = Double.parseDouble(result.getText().toString());
-                        }
-                        operator = "-";
-                        input = "";
-                        isOperatorSelected = true;
-                        COMMA_COUNT = 0;
-                        isResulted = false;
-
-                }
-                break;
-            case R.id._multiply:
-                if (!isOperatorSelected){
-                        if (res == 0) {
-                            numberOnTheScreen = Double.parseDouble(input);
-                        } else {
-                            numberOnTheScreen = Double.parseDouble(result.getText().toString());
-                        }
-                        operator = "*";
-                        input = "";
-                        isOperatorSelected = true;
-                        COMMA_COUNT = 0;
-                        isResulted = false;
-                }
-                break;
-            case R.id._divide:
-                if (!isOperatorSelected){
-                        if (res == 0) {
-                            numberOnTheScreen = Double.parseDouble(input);
-                        } else {
-                            numberOnTheScreen = Double.parseDouble(result.getText().toString());
-                        }
-                        operator = "/";
-                        input = "";
-                        isOperatorSelected = true;
-                        COMMA_COUNT = 0;
-                        isResulted = false;
-
-                }
+                numInputMethod(9);
                 break;
             case R.id._comma:
-                if (COMMA_COUNT == 0){
-                    input +=".";
-                    result.setText(""+input);
-                    COMMA_COUNT++;
-                }
                 break;
-            case R.id._plus_minus:
-                if (Double.parseDouble(result.getText().toString()) != 0) {
-                    double d = Double.parseDouble(input);
-                    int i = Integer.parseInt(input);
-                    if (d - i == 0){
-                        int i2 = Integer.parseInt(input) * (-1);
-                        input = ""+i2;
-                        result.setText(""+ i2);
-                    } else {
-                        double t = Double.parseDouble(input) * (-1);
-                        input = "" + t;
-                        result.setText("" + t);
-                    }
-                }
+            case R.id._plus:
+                plusMethod();
                 break;
             case R.id._eq:
-                if (!isOperatorSelected && !isResulted) {
-                    res = Double.parseDouble(input);
-                    if (operator.equals("+")) {
-                        double r = numberOnTheScreen + res;
-                        int y = (int) r;
-                        int inte = (int) numberOnTheScreen;
-                        double doube = (double) inte;
-                        int intRes = (int) res;
-                        double doubleRes = (double) intRes;
-                        if ((numberOnTheScreen - doube) == 0 && (res - doubleRes) == 0 || (r - y) == 0) {
-                            int i = (int) r;
-                            String s = ""+i;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + i);
-                        } else {
-                            String s = ""+r;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + r);
-                        }
-                    } else if (operator.equals("-")) {
-                        double r = numberOnTheScreen - res;
-                        int intNum = (int) numberOnTheScreen;
-                        int intRes = (int) res;
-                        int y = (int) r;
-                        double doubleRes = (double) intRes;
-                        double doubleNum = (double) intNum;
-
-                        if ((numberOnTheScreen - doubleNum) == 0 && (res - doubleRes) == 0 || (r - y) == 0) {
-                            int i = (int) r;
-                            String s = ""+i;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + i);
-                        } else {
-                            String s = ""+r;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + r);
-                        }
-                    } else if (operator.equals("*")) {
-                        double r = numberOnTheScreen * res;
-                        int intNum = (int) numberOnTheScreen;
-                        int intRes = (int) res;
-                        int y = (int) r;
-                        double doubleRes = (double) intRes;
-                        double doubleNum = (double) intNum;
-                        if ((numberOnTheScreen - doubleNum) == 0 && (res - doubleRes) == 0 || (r - y) == 0) {
-                            int i = (int) r;
-                            String s = ""+i;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + i);
-                        } else {
-                            String s = ""+r;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + r);
-                        }
-                    } else if (operator.equals("/")){
-                        double d = numberOnTheScreen % res;
-                        double i = numberOnTheScreen / res;
-                        if (d == 0){
-                            int dr = (int) i;
-                            String s = ""+dr;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText(""+dr);
-                        }else {
-
-                            double r = (double) numberOnTheScreen / res;
-                            String s = ""+r;
-                            char[] toArr = s.toCharArray();
-                            if (toArr.length > 9){
-                                result.setTextSize(30);
-                            }
-                            result.setText("" + r);
-                        }
-                    }
-                    input = "";
-                    COMMA_COUNT = 0;
-                    isResulted = true;
-                }
                 break;
         }
     }
-    private void clear(){
-        input = "";
-        result.setText("0");
-        res = 0;
-        numberOnTheScreen = 0;
-        COMMA_COUNT = 0;
+
+    private void numInputMethod(int i) {
+        if (Float.parseFloat(inputView.getText().toString()) < (((Float.MAX_VALUE)/10)-1)) {
+            if (status.equals("numIn")) {
+                etRes += i;
+                result.setText(etRes);
+                inputF = Float.parseFloat(result.getText().toString());
+                inputView.setText("" + inputF);
+            } else if (status.equals("plusIn")){
+                etRes += i;
+                result.setText(etRes);
+                inputF = Float.parseFloat(result.getText().toString());
+                inputView.setText("" + inputF);
+            }
+        }
     }
+    private void plusMethod(){
+        if (status.equals("numIn")) {
+            lastInputF = inputF;
+            inputF = 0;
+            etRes = "";
+            status = "plusIn";
+        } else if (status.equals("plusIn")){
+            lastInputF += inputF;
+            etRes = "" + lastInputF;
+            result.setText(etRes);
+            inputF = 0;
+            etRes = "";
+        }
     }
+    private void resultMethod(){
+
+    }
+
+}
