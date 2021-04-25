@@ -1,5 +1,6 @@
 package com.yunitski.mycalc;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -13,10 +14,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button ac, plus_minus, percent, divide, _7, _8, _9, multiply, _4, _5, _6, minus, _1, _2, _3, plus, _0, comma, eq;
     EditText result;
-    TextView inputView;
-    String etRes;
-    float inputF, lastInputF;
-    static String status;
+    String inputString, prevInputString, status;
+    float inputFloat, prevInputFloat;
+    boolean commaIn;
+    int inputInt, prevInputInteger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,88 +64,230 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result = findViewById(R.id.result);
         result.setInputType(InputType.TYPE_NULL);
         result.setText("0");
-        inputView = findViewById(R.id.inputView);
-        inputView.setText("0");
-        etRes = "";
-        inputF = 0;
-        lastInputF = 0;
-        status = "numIn";
+        inputString = "";
+        prevInputString = "";
+        commaIn = false;
+        inputFloat = 0;
+        prevInputFloat = 0;
+        inputInt = 0;
+        prevInputInteger = 0;
+        status = "";
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id._0:
-                numInputMethod(0);
-                break;
-            case R.id._1:
-                numInputMethod(1);
-                break;
-            case R.id._2:
-                numInputMethod(2);
-                break;
-            case R.id._3:
-                numInputMethod(3);
-                break;
-            case R.id._4:
-                numInputMethod(4);
-                break;
-            case R.id._5:
-                numInputMethod(5);
-                break;
-            case R.id._6:
-                numInputMethod(6);
-                break;
-            case R.id._7:
-                numInputMethod(7);
-                break;
-            case R.id._8:
-                numInputMethod(8);
-                break;
-            case R.id._9:
-                numInputMethod(9);
-                break;
-            case R.id._comma:
-                break;
-            case R.id._plus:
-                plusMethod();
-                break;
-            case R.id._eq:
-                break;
+        int id = v.getId();
+        if (id == R.id._0) {
+            numInputMethod("0");
+        } else if (id == R.id._1) {
+            numInputMethod("1");
+        } else if (id == R.id._2) {
+            numInputMethod("2");
+        } else if (id == R.id._3) {
+            numInputMethod("3");
+        } else if (id == R.id._4) {
+            numInputMethod("4");
+        } else if (id == R.id._5) {
+            numInputMethod("5");
+        } else if (id == R.id._6) {
+            numInputMethod("6");
+        } else if (id == R.id._7) {
+            numInputMethod("7");
+        } else if (id == R.id._8) {
+            numInputMethod("8");
+        } else if (id == R.id._9) {
+            numInputMethod("9");
+        } else if (id == R.id._comma) {
+            numInputMethod(".");
+        } else if (id == R.id._plus) {
+            plusMethod();
+        } else if (id == R.id._minus) {
+            minusMethod();
+        } else if (id == R.id._eq) {
+            resultMethod();
+        } else if (id == R.id._multiply){
+            multiplyMethod();
+        } else if (id == R.id._ac){
+            acMethod();
+        } else if (id == R.id._divide){
+            divideMethod();
+        } else if (id == R.id._plus_minus){
+            plusMinusMethod();
+        } else if (id == R.id._percent){
+            percentMethod();
         }
     }
 
-    private void numInputMethod(int i) {
-        if (Float.parseFloat(inputView.getText().toString()) < (((Float.MAX_VALUE)/10)-1)) {
-            if (status.equals("numIn")) {
-                etRes += i;
-                result.setText(etRes);
-                inputF = Float.parseFloat(result.getText().toString());
-                inputView.setText("" + inputF);
-            } else if (status.equals("plusIn")){
-                etRes += i;
-                result.setText(etRes);
-                inputF = Float.parseFloat(result.getText().toString());
-                inputView.setText("" + inputF);
+    private void percentMethod() {
+        float toPM = Float.parseFloat(result.getText().toString()) * (0.01f);
+        if (isItFloat(toPM)){
+            result.setText("" + toPM);
+        } else {
+            int tPMI = (int) toPM;
+            result.setText("" + tPMI);
+        }
+    }
+
+    private void plusMinusMethod() {
+        float toPM = Float.parseFloat(result.getText().toString()) * (-1.0f);
+        if (isItFloat(toPM)){
+            result.setText("" + toPM);
+        } else {
+            int tPMI = (int) toPM;
+            result.setText("" + tPMI);
+        }
+    }
+
+    private void divideMethod() {
+        calculate();
+        status = "divide";
+    }
+
+    private void acMethod() {
+        sizeNormal();
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        int i = (int) inputFloat;
+        result.setText(""+i);
+    }
+
+    private void numInputMethod(String s) {
+        if (result.getText().toString().length() < 20) {
+            sizeNormal();
+            if (s.equals(".")) {
+                if (!commaIn) {
+                    inputString += s;
+                    inputFloat = Float.parseFloat(inputString);
+                    result.setText("" + inputString);
+                    commaIn = true;
+                    sizeLess();
+                }
+            } else {
+                inputString += s;
+                inputFloat = Float.parseFloat(inputString);
+                result.setText(inputString);
+                sizeLess();
             }
         }
+
     }
-    private void plusMethod(){
-        if (status.equals("numIn")) {
-            lastInputF = inputF;
-            inputF = 0;
-            etRes = "";
-            status = "plusIn";
-        } else if (status.equals("plusIn")){
-            lastInputF += inputF;
-            etRes = "" + lastInputF;
-            result.setText(etRes);
-            inputF = 0;
-            etRes = "";
+    private void plusMethod() {
+        calculate();
+        status = "plus";
+    }
+    private void minusMethod(){
+        calculate();
+        status = "minus";
+    }
+
+    private void resultMethod(){
+        calculate();
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
+    }
+
+    private void multiplyMethod(){
+        calculate();
+        status = "multiply";
+    }
+
+    private void calculate(){
+        switch (status) {
+            case "plus":
+                prevInputFloat += inputFloat;
+                if (isItFloat(prevInputFloat)) {
+                    result.setText("" + prevInputFloat);
+                } else {
+                    int i = (int) prevInputFloat;
+                    result.setText(""+i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "minus":
+                prevInputFloat -= inputFloat;
+                if (isItFloat(prevInputFloat)) {
+                    result.setText("" + prevInputFloat);
+                } else {
+                    int i = (int) prevInputFloat;
+                    result.setText(""+i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "":
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "multiply":
+                prevInputFloat *= inputFloat;
+                if (isItFloat(prevInputFloat)) {
+                    result.setText("" + prevInputFloat);
+                } else {
+                    int i = (int) prevInputFloat;
+                    result.setText(""+i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "divide":
+                prevInputFloat /= inputFloat;
+                if (isItFloat(prevInputFloat)) {
+                    result.setText("" + prevInputFloat);
+                } else {
+                    int i = (int) prevInputFloat;
+                    result.setText(""+i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
         }
     }
-    private void resultMethod(){
 
+    private boolean isItFloat(float tf){
+        boolean itIsFloat;
+        int ti = (int) tf;
+        itIsFloat = tf - ti != 0;
+        return itIsFloat;
     }
-
+    private void sizeLess(){
+        if (result.getText().toString().length() == 10){
+            result.setTextSize(65);
+        } else if (result.getText().toString().length() == 11){
+            result.setTextSize(60);
+        } else if (result.getText().toString().length() == 12){
+            result.setTextSize(55);
+        } else if (result.getText().toString().length() == 13){
+            result.setTextSize(50);
+        } else if (result.getText().toString().length() == 14){
+            result.setTextSize(47);
+        } else if (result.getText().toString().length() == 15){
+            result.setTextSize(44);
+        } else if (result.getText().toString().length() == 16){
+            result.setTextSize(42);
+        } else if (result.getText().toString().length() == 17){
+            result.setTextSize(40);
+        } else if (result.getText().toString().length() == 18){
+            result.setTextSize(38);
+        } else if (result.getText().toString().length() == 19){
+            result.setTextSize(36);
+        } else if (result.getText().toString().length() == 20){
+            result.setTextSize(34);
+        }
+    }
+    private void sizeNormal(){
+        result.setTextSize(70);
+    }
 }

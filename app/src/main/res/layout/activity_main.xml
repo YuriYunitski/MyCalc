@@ -156,6 +156,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="x"
+            android:textSize="22sp"
             app:backgroundTint="@color/orange" />
     </LinearLayout>
 
@@ -177,7 +178,7 @@
             android:background="@drawable/rounded"
             android:text="AC"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:backgroundTint="@color/gray2" />
 
         <Button
@@ -189,7 +190,7 @@
             android:background="@drawable/rounded"
             android:text="+/-"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="18sp"
             app:backgroundTint="@color/gray2" />
 
         <Button
@@ -200,6 +201,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="%"
+            android:textSize="22sp"
             android:textColor="@color/black"
             app:backgroundTint="@color/gray2" />
 
@@ -257,7 +259,7 @@
                 android:layout_weight="8"
                 android:background="@drawable/rounded"
                 android:text="0"
-                app:backgroundTint="@color/gray1" />
+                app:backgroundTint="@color/gray1"/>
 
 
         </LinearLayout>
@@ -280,7 +282,7 @@
                 android:layout_weight="2"
                 android:background="@drawable/rounded"
                 android:text=","
-                app:backgroundTint="@color/gray1" />
+                app:backgroundTint="@color/gray1"/>
 
             <Button
                 android:id="@+id/_eq"
@@ -294,14 +296,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/inputView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
