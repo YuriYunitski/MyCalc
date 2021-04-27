@@ -160,7 +160,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (s.equals(".")) {
                 if (!commaIn) {
                     inputString += s;
-                    inputFloat = Float.parseFloat(inputString);
+                    if(inputString.equals(".")){
+                        inputFloat = Float.parseFloat("0.");
+                    } else {
+                        inputFloat = Float.parseFloat(inputString);
+                    }
+
                     result.setText("" + inputString);
                     commaIn = true;
                     sizeLess();
