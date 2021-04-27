@@ -14,8 +14,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:textColor="@color/white"
         android:textAlignment="textEnd"
+        android:textColor="@color/white"
+        android:textSize="65sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,9 +26,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/_bracket_open"
@@ -38,6 +39,7 @@
             android:background="@drawable/rounded"
             android:text="("
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_bracket_close"
             style="@style/buttons_text_size_horizontal"
@@ -47,6 +49,7 @@
             android:background="@drawable/rounded"
             android:text=")"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_mc"
             style="@style/buttons_text_size_horizontal"
@@ -56,6 +59,7 @@
             android:background="@drawable/rounded"
             android:text="mc"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_m_plus"
             style="@style/buttons_text_size_horizontal"
@@ -65,6 +69,7 @@
             android:background="@drawable/rounded"
             android:text="m+"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_m_minus"
             style="@style/buttons_text_size_horizontal"
@@ -74,6 +79,7 @@
             android:background="@drawable/rounded"
             android:text="m-"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_mr"
             style="@style/buttons_text_size_horizontal"
@@ -83,6 +89,7 @@
             android:background="@drawable/rounded"
             android:text="mr"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_ac"
             style="@style/buttons_text_size_horizontal"
@@ -115,8 +122,8 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="%"
-            android:textSize="22sp"
             android:textColor="@color/black"
+            android:textSize="22sp"
             app:backgroundTint="@color/gray2" />
 
         <Button
@@ -136,9 +143,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/_2nd"
@@ -149,6 +156,7 @@
             android:background="@drawable/rounded"
             android:text="2nd"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_x2"
             style="@style/buttons_text_size_horizontal"
@@ -156,8 +164,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="x2"
+            android:text="x²"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_x3"
             style="@style/buttons_text_size_horizontal"
@@ -165,8 +174,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="x3"
+            android:text="x³"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_xy"
             style="@style/buttons_text_size_horizontal"
@@ -174,8 +184,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="xy"
+            android:text="xʸ"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_ex"
             style="@style/buttons_text_size_horizontal"
@@ -183,8 +194,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="ex"
+            android:text="ₑˣ"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_10x"
             style="@style/buttons_text_size_horizontal"
@@ -192,8 +204,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="10x"
+            android:text="10ˣ"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_7"
             style="@style/buttons_text_size_horizontal"
@@ -242,9 +255,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/_1delx"
@@ -255,6 +268,7 @@
             android:background="@drawable/rounded"
             android:text="1/x"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_2sqrtx"
             style="@style/buttons_text_size_horizontal"
@@ -262,8 +276,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="2x"
+            android:text="√x"
             app:backgroundTint="@color/gray1" />
+
         <Button
             android:id="@+id/_3sqrtx"
             style="@style/buttons_text_size_horizontal"
@@ -271,34 +286,37 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="3x"
+            android:text="∛x"
             app:backgroundTint="@color/gray1" />
+
         <Button
-            android:id="@+id/_xy"
+            android:id="@+id/_ysqrtx"
             style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="xy"
+            android:text="ʸ√x"
             app:backgroundTint="@color/gray1" />
+
         <Button
-            android:id="@+id/_ex"
+            android:id="@+id/_ln"
             style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="ex"
+            android:text="ln"
             app:backgroundTint="@color/gray1" />
+
         <Button
-            android:id="@+id/_10x"
+            android:id="@+id/_log10"
             style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/rounded"
-            android:text="10x"
+            android:text="log₁₀"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -348,20 +366,212 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/_xfactotrial"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="x!"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_sin"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="sin"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_cos"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="cos"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_tan"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="tan"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_e"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="e"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_ee"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="ee"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_1"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="1"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_2"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="2"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_3"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="3"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_plus"
+            style="@style/buttons_text_size_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="+"
+            app:backgroundTint="@color/orange" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout11"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
+        app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/_rad"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="rad"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_sinh"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="sinh"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_cosh"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="cosh"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_tanh"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="tanh"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_pi"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="π"
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_rand"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="rand"
+            app:backgroundTint="@color/gray1" />
+
+
+        <Button
+            android:id="@+id/_0"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="0"
+            app:backgroundTint="@color/gray1" />
+
+
+        <Button
+            android:id="@+id/_comma"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="."
+            app:backgroundTint="@color/gray1" />
+
+        <Button
+            android:id="@+id/_eq"
+            style="@style/buttons_text_size_footer_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/rounded"
+            android:text="="
+            app:backgroundTint="@color/orange" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
