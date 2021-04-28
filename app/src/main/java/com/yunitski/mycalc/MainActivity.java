@@ -1,5 +1,7 @@
 package com.yunitski.mycalc;
 
+import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
@@ -64,35 +66,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eq.setOnClickListener(this);
         result = findViewById(R.id.result);
         bracketOpen = findViewById(R.id._bracket_open);
+        bracketOpen.setOnClickListener(this);
         bracketClose = findViewById(R.id._bracket_close);
+        bracketClose.setOnClickListener(this);
         mc = findViewById(R.id._mc);
+        mc.setOnClickListener(this);
         mPlus = findViewById(R.id._m_plus);
+        mPlus.setOnClickListener(this);
         mMinus = findViewById(R.id._m_minus);
+        mMinus.setOnClickListener(this);
         mr = findViewById(R.id._mr);
+        mr.setOnClickListener(this);
         _2nd = findViewById(R.id._2nd);
+        _2nd.setOnClickListener(this);
         x2 = findViewById(R.id._x2);
+        x2.setOnClickListener(this);
         x3 = findViewById(R.id._x3);
+        x3.setOnClickListener(this);
         xy = findViewById(R.id._xy);
+        xy.setOnClickListener(this);
         ex = findViewById(R.id._ex);
+        ex.setOnClickListener(this);
         _10x = findViewById(R.id._10x);
+        _10x.setOnClickListener(this);
         _1delx = findViewById(R.id._1delx);
+        _1delx.setOnClickListener(this);
         _2sqrtx = findViewById(R.id._2sqrtx);
+        _2sqrtx.setOnClickListener(this);
         _3sqrtx = findViewById(R.id._3sqrtx);
+        _3sqrtx.setOnClickListener(this);
         ysqrtx = findViewById(R.id._ysqrtx);
+        ysqrtx.setOnClickListener(this);
         ln = findViewById(R.id._ln);
+        ln.setOnClickListener(this);
         log10 = findViewById(R.id._log10);
+        log10.setOnClickListener(this);
         xfact = findViewById(R.id._xfactotrial);
+        xfact.setOnClickListener(this);
         sin = findViewById(R.id._sin);
+        sin.setOnClickListener(this);
         cos = findViewById(R.id._cos);
+        cos.setOnClickListener(this);
         tan = findViewById(R.id._tan);
+        tan.setOnClickListener(this);
         e = findViewById(R.id._e);
+        e.setOnClickListener(this);
         ee = findViewById(R.id._ee);
+        ee.setOnClickListener(this);
         rad = findViewById(R.id._rad);
+        rad.setOnClickListener(this);
         sinh = findViewById(R.id._sinh);
+        sinh.setOnClickListener(this);
         cosh = findViewById(R.id._cosh);
+        cosh.setOnClickListener(this);
         tanh = findViewById(R.id._tanh);
+        tanh.setOnClickListener(this);
         pi = findViewById(R.id._pi);
+        pi.setOnClickListener(this);
         rand = findViewById(R.id._rand);
+        rand.setOnClickListener(this);
         result.setInputType(InputType.TYPE_NULL);
         result.setText("0");
         inputString = "";
@@ -146,7 +178,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             plusMinusMethod();
         } else if (id == R.id._percent){
             percentMethod();
+        } else if (id == R.id._10x){
+            tenXMethod();
+        } else if (id == R.id._x2){
+            x2Method();
+        } else if (id == R.id._x3){
+            x3Method();
         }
+    }
+
+    private void x3Method() {
+        float toExp = Float.parseFloat(result.getText().toString()) * Float.parseFloat(result.getText().toString()) * Float.parseFloat(result.getText().toString());
+        if (isItFloat(toExp)){
+            result.setText("" + toExp);
+        } else {
+            int i = (int) toExp;
+            result.setText("" + i);
+        }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
+    }
+
+    private void x2Method() {
+        float toExp = Float.parseFloat(result.getText().toString()) * Float.parseFloat(result.getText().toString());
+        if (isItFloat(toExp)){
+            result.setText("" + toExp);
+        } else {
+            int i = (int) toExp;
+            result.setText("" + i);
+        }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
+    }
+
+    private void tenXMethod() {
+        if (!isItFloat(Float.parseFloat(result.getText().toString()))) {
+            int mPow = (int) (Math.pow(10, Integer.parseInt(result.getText().toString())));
+            result.setText("" + mPow);
+        }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
     }
 
     private void percentMethod() {
@@ -299,31 +382,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return itIsFloat;
     }
     private void sizeLess(){
-        if (result.getText().toString().length() == 10){
-            result.setTextSize(65);
-        } else if (result.getText().toString().length() == 11){
-            result.setTextSize(60);
-        } else if (result.getText().toString().length() == 12){
-            result.setTextSize(55);
-        } else if (result.getText().toString().length() == 13){
-            result.setTextSize(50);
-        } else if (result.getText().toString().length() == 14){
-            result.setTextSize(47);
-        } else if (result.getText().toString().length() == 15){
-            result.setTextSize(44);
-        } else if (result.getText().toString().length() == 16){
-            result.setTextSize(42);
-        } else if (result.getText().toString().length() == 17){
-            result.setTextSize(40);
-        } else if (result.getText().toString().length() == 18){
-            result.setTextSize(38);
-        } else if (result.getText().toString().length() == 19){
-            result.setTextSize(36);
-        } else if (result.getText().toString().length() == 20){
-            result.setTextSize(34);
+        if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            if (result.getText().toString().length() == 13) {
+                result.setTextSize(50);
+            } else if (result.getText().toString().length() == 14) {
+                result.setTextSize(47);
+            } else if (result.getText().toString().length() == 15) {
+                result.setTextSize(45);
+            } else if (result.getText().toString().length() == 16) {
+                result.setTextSize(43);
+            } else if (result.getText().toString().length() == 17) {
+                result.setTextSize(40);
+            } else if (result.getText().toString().length() == 18) {
+                result.setTextSize(38);
+            } else if (result.getText().toString().length() == 19) {
+                result.setTextSize(35);
+            } else if (result.getText().toString().length() == 20) {
+                result.setTextSize(33);
+            }
         }
     }
     private void sizeNormal(){
-        result.setTextSize(70);
+        result.setTextSize(55);
     }
 }

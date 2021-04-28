@@ -10,4 +10,5 @@
     <color name="gray1">#2F2D33</color>
     <color name="gray2">#A4A4A4</color>
     <color name="orange">#F78B00</color>
+    <color name="gray_other">#212121</color>
 </resources>
