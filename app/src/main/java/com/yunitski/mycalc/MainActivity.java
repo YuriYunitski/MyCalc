@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         eq = findViewById(R.id._eq);
         eq.setOnClickListener(this);
         result = findViewById(R.id.result);
+        if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
         bracketOpen = findViewById(R.id._bracket_open);
         bracketOpen.setOnClickListener(this);
         bracketClose = findViewById(R.id._bracket_close);
@@ -79,16 +80,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mr.setOnClickListener(this);
         _2nd = findViewById(R.id._2nd);
         _2nd.setOnClickListener(this);
-        x2 = findViewById(R.id._x2);
-        x2.setOnClickListener(this);
-        x3 = findViewById(R.id._x3);
-        x3.setOnClickListener(this);
+            x2 = findViewById(R.id._x2);
+            x2.setOnClickListener(this);
+            x3 = findViewById(R.id._x3);
+            x3.setOnClickListener(this);
         xy = findViewById(R.id._xy);
         xy.setOnClickListener(this);
         ex = findViewById(R.id._ex);
         ex.setOnClickListener(this);
-        _10x = findViewById(R.id._10x);
-        _10x.setOnClickListener(this);
+            _10x = findViewById(R.id._10x);
+            _10x.setOnClickListener(this);
         _1delx = findViewById(R.id._1delx);
         _1delx.setOnClickListener(this);
         _2sqrtx = findViewById(R.id._2sqrtx);
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pi.setOnClickListener(this);
         rand = findViewById(R.id._rand);
         rand.setOnClickListener(this);
+    }
         result.setInputType(InputType.TYPE_NULL);
         result.setText("0");
         inputString = "";
@@ -195,12 +197,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int i = (int) toExp;
             result.setText("" + i);
         }
-        inputString = "";
-        inputFloat = 0;
-        prevInputFloat = 0;
-        commaIn = false;
-        status = "";
-        sizeLess();
     }
 
     private void x2Method() {
@@ -211,12 +207,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int i = (int) toExp;
             result.setText("" + i);
         }
-        inputString = "";
-        inputFloat = 0;
-        prevInputFloat = 0;
-        commaIn = false;
-        status = "";
-        sizeLess();
     }
 
     private void tenXMethod() {
@@ -224,12 +214,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int mPow = (int) (Math.pow(10, Integer.parseInt(result.getText().toString())));
             result.setText("" + mPow);
         }
-        inputString = "";
-        inputFloat = 0;
-        prevInputFloat = 0;
-        commaIn = false;
-        status = "";
-        sizeLess();
     }
 
     private void percentMethod() {
