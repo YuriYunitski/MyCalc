@@ -180,13 +180,106 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             plusMinusMethod();
         } else if (id == R.id._percent){
             percentMethod();
-        } else if (id == R.id._10x){
-            tenXMethod();
-        } else if (id == R.id._x2){
-            x2Method();
-        } else if (id == R.id._x3){
-            x3Method();
         }
+        if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (id == R.id._10x) {
+                tenXMethod();
+            } else if (id == R.id._x2) {
+                x2Method();
+            } else if (id == R.id._x3) {
+                x3Method();
+            } else if (id == R.id._xfactotrial){
+                xFactorialMethod();
+            } else if (id == R.id._xy){
+                xyMethod();
+            } else if (id == R.id._1delx){
+                oneDelXMethod();
+            } else if (id == R.id._ex){
+                exMethod();
+            } else if (id == R.id._2sqrtx){
+                twoSqrtMethod();
+            } else if (id == R.id._3sqrtx){
+                threeSqrtMethod();
+            } else if (id == R.id._ysqrtx){
+                ySqrtMethod();
+            } else if (id == R.id._e){
+                eMethod();
+            } else if (id == R.id._pi){
+                piMethod();
+            }
+        }
+    }
+
+    private void piMethod() {
+        result.setText(""+Math.PI);
+    }
+
+    private void eMethod() {
+        result.setText(""+Math.E);
+    }
+
+    private void ySqrtMethod() {
+        calculate();
+        status = "ysqrtx";
+    }
+
+    private void threeSqrtMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d = Math.sqrt(Math.sqrt(mVar));
+        if (isItFloat((float) d)){
+            result.setText(""+d);
+        } else {
+            int i = (int) d;
+            result.setText("" + i);
+        }
+    }
+
+    private void twoSqrtMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d = Math.sqrt(mVar);
+        if (isItFloat((float) d)){
+            result.setText(""+d);
+        } else {
+            int i = (int) d;
+            result.setText("" + i);
+        }
+    }
+
+    private void exMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d = Math.pow(Math.E, mVar);
+        result.setText(""+d);
+    }
+
+    private void oneDelXMethod() {
+        float mVar = 1 / Float.parseFloat(result.getText().toString());
+        result.setText(""+mVar);
+    }
+
+    private void xyMethod() {
+        calculate();
+        status = "xy";
+    }
+
+    private void xFactorialMethod() {
+        float toExp = Float.parseFloat(result.getText().toString());
+        if (isItFloat(toExp)){
+            result.setText("Ошибка!");
+        } else {
+            int k = (int) toExp;
+            int r = 1;
+            for (int i = 1; i <= k; i++){
+                r *= i;
+            }
+            result.setText("" + r);
+        }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
+
     }
 
     private void x3Method() {
@@ -197,6 +290,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int i = (int) toExp;
             result.setText("" + i);
         }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
     }
 
     private void x2Method() {
@@ -207,6 +306,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int i = (int) toExp;
             result.setText("" + i);
         }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
     }
 
     private void tenXMethod() {
@@ -214,6 +319,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int mPow = (int) (Math.pow(10, Integer.parseInt(result.getText().toString())));
             result.setText("" + mPow);
         }
+        inputString = "";
+        inputFloat = 0;
+        prevInputFloat = 0;
+        commaIn = false;
+        status = "";
+        sizeLess();
     }
 
     private void percentMethod() {
@@ -345,12 +456,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 commaIn = false;
                 break;
             case "divide":
-                prevInputFloat /= inputFloat;
-                if (isItFloat(prevInputFloat)) {
-                    result.setText("" + prevInputFloat);
+                if (inputFloat == 0){
+                    result.setText("Ошибка!");
                 } else {
-                    int i = (int) prevInputFloat;
-                    result.setText(""+i);
+                    prevInputFloat /= inputFloat;
+                    if (isItFloat(prevInputFloat)) {
+                        result.setText("" + prevInputFloat);
+                    } else {
+                        int i = (int) prevInputFloat;
+                        result.setText("" + i);
+                    }
+                    prevInputFloat = Float.parseFloat(result.getText().toString());
+                }
+                inputString = "";
+                commaIn = false;
+                break;
+            case "xy":
+                double f = Math.pow(prevInputFloat, inputFloat);
+                if (isItFloat((float) f)){
+                    result.setText("" + f);
+                } else {
+                    int i = (int) f;
+                    result.setText("" + i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "ysqrtx":
+                int k = (int) prevInputFloat;
+                double rr = 1;
+                for (int i = 1; i <= k; i++){
+                    rr = Math.sqrt(inputFloat);
+
+                }
+                if (isItFloat((float) rr)){
+                    result.setText("" + rr);
+                } else {
+                    int i = (int) rr;
+                    result.setText("" + i);
                 }
                 prevInputFloat = Float.parseFloat(result.getText().toString());
                 inputString = "";
