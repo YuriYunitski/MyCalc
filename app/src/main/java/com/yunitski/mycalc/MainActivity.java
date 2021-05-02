@@ -206,7 +206,125 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 eMethod();
             } else if (id == R.id._pi){
                 piMethod();
+            } else if (id == R.id._ln){
+                lnMethod();
+            } else if (id == R.id._log10){
+                log10Method();
+            } else if (id == R.id._sin){
+                sinMethod();
+            } else if (id == R.id._cos){
+                cosMethod();
+            } else if (id == R.id._tan){
+                tanMethod();
+            } else if (id == R.id._sinh){
+                sinhMethod();
+            } else if (id == R.id._cosh){
+                coshMethod();
+            } else if (id == R.id._tanh){
+                tanhMethod();
+            } else if (id == R.id._ee){
+                eeMethod();
+            } else if (id == R.id._rand){
+                randMethod();
             }
+        }
+    }
+
+    private void randMethod() {
+        float r = (float) Math.random();
+        result.setText("" + r);
+    }
+
+    private void eeMethod() {
+        calculate();
+        status = "ee";
+    }
+
+    private void tanhMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.tanh(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void coshMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.cosh(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void sinhMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.sinh(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void tanMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.tan(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void cosMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.cos(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void sinMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.sin(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void log10Method() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.log10(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
+        }
+    }
+
+    private void lnMethod() {
+        float mVar = Float.parseFloat(result.getText().toString());
+        double d;
+        if (mVar >= 0){
+            d = Math.log(mVar);
+            result.setText(""+d);
+        } else {
+            result.setText("Ошибка!");
         }
     }
 
@@ -485,15 +603,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case "ysqrtx":
                 int k = (int) prevInputFloat;
-                double rr = 1;
-                for (int i = 1; i <= k; i++){
-                    rr = Math.sqrt(inputFloat);
-
+                double rr = inputFloat;
+                for (int i = 0; i < k; i++){
+                    rr = Math.sqrt(rr);
                 }
                 if (isItFloat((float) rr)){
                     result.setText("" + rr);
                 } else {
                     int i = (int) rr;
+                    result.setText("" + i);
+                }
+                prevInputFloat = Float.parseFloat(result.getText().toString());
+                inputString = "";
+                commaIn = false;
+                break;
+            case "ee":
+                float w1 = prevInputFloat;
+                float w2 = inputFloat;
+                double d = w1 * (Math.pow(10, w2));
+                if (isItFloat((float) d)) {
+                    result.setText("" + d);
+                } else {
+                    int i = (int) d;
                     result.setText("" + i);
                 }
                 prevInputFloat = Float.parseFloat(result.getText().toString());
@@ -512,25 +643,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void sizeLess(){
         if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             if (result.getText().toString().length() == 13) {
-                result.setTextSize(50);
+                result.setTextSize(getResources().getDimension(R.dimen._14sdp));
             } else if (result.getText().toString().length() == 14) {
-                result.setTextSize(47);
+                result.setTextSize(getResources().getDimension(R.dimen._13sdp));
             } else if (result.getText().toString().length() == 15) {
-                result.setTextSize(45);
+                result.setTextSize(getResources().getDimension(R.dimen._12sdp));
             } else if (result.getText().toString().length() == 16) {
-                result.setTextSize(43);
+                result.setTextSize(getResources().getDimension(R.dimen._12sdp));
             } else if (result.getText().toString().length() == 17) {
-                result.setTextSize(40);
+                result.setTextSize(getResources().getDimension(R.dimen._11sdp));
             } else if (result.getText().toString().length() == 18) {
-                result.setTextSize(38);
+                result.setTextSize(getResources().getDimension(R.dimen._10sdp));
             } else if (result.getText().toString().length() == 19) {
-                result.setTextSize(35);
+                result.setTextSize(getResources().getDimension(R.dimen._10sdp));
             } else if (result.getText().toString().length() == 20) {
-                result.setTextSize(33);
+                result.setTextSize(getResources().getDimension(R.dimen._9sdp));
             }
         }
     }
     private void sizeNormal(){
-        result.setTextSize(55);
+        result.setTextSize(getResources().getDimension(R.dimen._14sdp));
     }
 }

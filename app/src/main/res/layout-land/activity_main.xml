@@ -99,6 +99,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="AC"
+            android:textSize="@dimen/_8sdp"
             android:textColor="@color/black"
             app:backgroundTint="@color/gray2" />
 
@@ -111,6 +112,7 @@
             android:background="@drawable/rounded"
             android:text="+/-"
             android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray2" />
 
         <Button
@@ -122,6 +124,7 @@
             android:background="@drawable/rounded"
             android:text="%"
             android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray2" />
 
         <Button
@@ -132,6 +135,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="÷"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/orange" />
 
     </LinearLayout>
@@ -193,7 +197,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="ₑˣ"
-            android:textSize="16sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -247,6 +251,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="x"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/orange" />
 
     </LinearLayout>
@@ -361,7 +366,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="-"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/orange" />
 
     </LinearLayout>
@@ -572,7 +577,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="."
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -583,7 +588,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="="
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/orange" />
 
     </LinearLayout>
