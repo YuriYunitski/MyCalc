@@ -1,6 +1,8 @@
 package com.yunitski.mycalc;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,10 +19,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button ac, plus_minus, percent, divide, _7, _8, _9, multiply, _4, _5, _6, minus, _1, _2, _3, plus, _0, comma, eq;
     Button bracketOpen, bracketClose, mc, mPlus, mMinus, mr, _2nd, x2, x3, xy, ex, _10x, _1delx, _2sqrtx, _3sqrtx, ysqrtx, ln, log10, xfact, sin, cos, tan, e, ee, rad, sinh, cosh, tanh, pi, rand;
     EditText result;
-    String inputString, prevInputString, status;
+    String inputString, prevInputString, status, fileName;
     float inputFloat, prevInputFloat;
     boolean commaIn;
     int inputInt, prevInputInteger;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inputInt = 0;
         prevInputInteger = 0;
         status = "";
+        fileName = "myFile";
     }
 
     @Override
@@ -226,8 +230,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 eeMethod();
             } else if (id == R.id._rand){
                 randMethod();
+            } else if (id == R.id._m_plus){
+                mPlusMethod();
+            } else if (id == R.id._mr){
+                mrMethod();
+            } else if (id == R.id._mc){
+                mcMethod();
+            } else if (id == R.id._m_minus){
+                mMinusMethod();
             }
         }
+    }
+
+    private void mMinusMethod() {
+        sharedPreferences = getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear().apply();
+    }
+
+    private void mcMethod() {
+        sharedPreferences = getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear().apply();
+    }
+
+    private void mrMethod() {
+        sharedPreferences = getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        String name = sharedPreferences.getString("name", "Ошибка!");
+        result.setText(name);
+    }
+
+    private void mPlusMethod() {
+        String strName = result.getText().toString();
+        sharedPreferences = getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", strName);
+        editor.apply();
     }
 
     private void randMethod() {

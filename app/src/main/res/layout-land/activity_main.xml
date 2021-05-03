@@ -99,7 +99,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="AC"
-            android:textSize="@dimen/_8sdp"
+            android:textSize="@dimen/_10sdp"
             android:textColor="@color/black"
             app:backgroundTint="@color/gray2" />
 
@@ -218,7 +218,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="7"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -229,7 +229,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="8"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -240,7 +240,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="9"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -333,7 +333,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="4"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -344,7 +344,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="5"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -355,7 +355,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="6"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -448,7 +448,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="1"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -459,7 +459,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="2"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -470,7 +470,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="3"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/gray1" />
 
         <Button
@@ -481,7 +481,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="+"
-            android:textSize="18sp"
+            android:textSize="@dimen/_12sdp"
             app:backgroundTint="@color/orange" />
 
     </LinearLayout>
@@ -497,7 +497,7 @@
 
         <Button
             android:id="@+id/_rad"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -507,7 +507,7 @@
 
         <Button
             android:id="@+id/_sinh"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -517,7 +517,7 @@
 
         <Button
             android:id="@+id/_cosh"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -527,7 +527,7 @@
 
         <Button
             android:id="@+id/_tanh"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -537,7 +537,7 @@
 
         <Button
             android:id="@+id/_pi"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -547,7 +547,7 @@
 
         <Button
             android:id="@+id/_rand"
-            style="@style/buttons_text_size_footer_horizontal"
+            style="@style/buttons_text_size_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -563,9 +563,9 @@
             android:layout_height="match_parent"
             android:background="@drawable/rounded"
             android:text="0"
-            android:textSize="18sp"
-            android:paddingEnd="65dp"
-            android:paddingStart="65dp"
+            android:textSize="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_55sdp"
+            android:paddingStart="@dimen/_55sdp"
             app:backgroundTint="@color/gray1" />
 
 
