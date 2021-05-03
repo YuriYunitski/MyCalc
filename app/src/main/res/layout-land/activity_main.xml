@@ -59,6 +59,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="mc"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -69,6 +70,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="m+"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -79,6 +81,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="m-"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -89,6 +92,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="mr"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -167,6 +171,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="x²"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -177,6 +182,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="x³"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -187,6 +193,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="xʸ"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -208,6 +215,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="10ˣ"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -273,6 +281,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="1/x"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -283,6 +292,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="√x"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -293,6 +303,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="∛x"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -303,6 +314,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="ʸ√x"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -388,6 +400,7 @@
             android:layout_weight="2"
             android:background="@drawable/rounded"
             android:text="x!"
+            android:textSize="@dimen/_10sdp"
             app:backgroundTint="@color/gray_other" />
 
         <Button
@@ -564,8 +577,8 @@
             android:background="@drawable/rounded"
             android:text="0"
             android:textSize="@dimen/_12sdp"
-            android:paddingEnd="@dimen/_55sdp"
-            android:paddingStart="@dimen/_55sdp"
+            android:paddingEnd="@dimen/_50sdp"
+            android:paddingStart="@dimen/_50sdp"
             app:backgroundTint="@color/gray1" />
 
 
